@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR To-Do List</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+      
+      <!-- Add camera with cursor -->
+      <a-entity camera>
+        <a-cursor
+          fuse="true"
+          fuse-timeout="500"
+          raycaster="objects: .clickable"
+          material="color: white; shader: flat"
+        ></a-cursor>
+      </a-entity>
+
+      <a-marker preset="hiro">
+        <a-entity id="tasks" position="0 0 0">
+
+          <a-text value="✔️ Click a task" position="-1.5 0.5 0" scale="1 1 1" color="#00FF00"></a-text>
+
+          <!-- 5 Tasks on the Left -->
+          <a-box class="clickable" id="task1" position="-1.5 0.2 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Buy groceries" position="-1.45 0.2 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task2" position="-1.5 -0.1 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Read book" position="-1.45 -0.1 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task3" position="-1.5 -0.4 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Call mom" position="-1.45 -0.4 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task4" position="-1.5 -0.7 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Finish homework" position="-1.45 -0.7 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task5" position="-1.5 -1.0 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Clean the house" position="-1.45 -1.0 0.06" width="1" color="black"></a-text>
+
+          <!-- 5 Tasks on the Right -->
+          <a-box class="clickable" id="task6" position="1.5 0.2 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Buy new shoes" position="1.45 0.2 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task7" position="1.5 -0.1 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Go to the gym" position="1.45 -0.1 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task8" position="1.5 -0.4 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Water the plants" position="1.45 -0.4 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task9" position="1.5 -0.7 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Take the dog for a walk" position="1.45 -0.7 0.06" width="1" color="black"></a-text>
+
+          <a-box class="clickable" id="task10" position="1.5 -1.0 0" depth="0.1" height="0.2" width="1" color="#ffcc00"></a-box>
+          <a-text value="Organize the closet" position="1.45 -1.0 0.06" width="1" color="black"></a-text>
+
+        </a-entity>
+
+        <a-text id="points" value="Points: 0" position="0 -1.5 0" width="2" color="#00ff00"></a-text>
+        <a-text id="message" value="" position="0 -1.8 0" width="2" color="yellow"></a-text>
+      </a-marker>
+      
+    </a-scene>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
